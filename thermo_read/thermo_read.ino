@@ -1,6 +1,7 @@
 #define DEFAULT_BUF_SIZE 25
 #define LOOP_TIMER 1000 //Wait 1 seconds
-#define MAX_RESISTOR_TEMP 150
+
+   #define MAX_RESISTOR_TEMP 
 #define RESISTOR_TEMP_THRESHOLD 5
 #define RESISTOR_TEMP_PIN 0
 #define POWER_CONTROL_PIN 0
@@ -12,14 +13,15 @@
 #define TEMP5_PIN 5
 
 /* Symbols for the data being sent over serial */
-#define RESISTOR_TEMPERATURE_SYMBOL "resistor"
-#define THERMO_TEMPERATURE_1 "temp1"
-#define THERMO_TEMPERATURE_2 "temp2"
-#define THERMO_TEMPERATURE_3 "temp3"
-#define THERMO_TEMPERATURE_4 "temp4"
-#define THERMO_TEMPERATURE_5 "temp5"
+#define RESISTOR_TEMPERATURE_SYMBOL "resistor_"
+#define THERMO_TEMPERATURE_1 "temp1_"
+#define THERMO_TEMPERATURE_2 "temp2_"
+#define THERMO_TEMPERATURE_3 "temp3_"
+#define THERMO_TEMPERATURE_4 "temp4_"
+#define THERMO_TEMPERATURE_5 "temp5_"
 
 /* Prototypes */
+
 inline void controlResistor();
 
 void setup()
@@ -79,9 +81,9 @@ inline void controlResistor()
   int res_raw_temp = analogRead(RESISTOR_TEMP_PIN);
   
   if (res_raw_temp > MAX_RESISTOR_TEMP + RESISTOR_TEMP_THRESHOLD)
-    digitalWrite(POWER_CONTROL_PIN, HIGH);
+    digitalWrite(POWER_CONTROL_PIN, HIGH); //TURN OFF
   else if (res_raw_temp < MAX_RESISTOR_TEMP - RESISTOR_TEMP_THRESHOLD)
-    digitalWrite(POWER_CONTROL_PIN, LOW);
+    digitalWrite(POWER_CONTROL_PIN, LOW); //TURN ON
     
   /* Print the tempertature over serial */
   sprintf(buf, RESISTOR_TEMPERATURE_SYMBOL " %d", res_raw_temp);
