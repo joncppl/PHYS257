@@ -6,7 +6,7 @@
 
 #define MAX_RESISTOR_TEMP 100 // CELCIUS
 #define RESISTOR_TEMP_THRESHOLD 5
-#define RESISTOR_TEMP_PIN 5
+#define RESISTOR_TEMP_PIN 1
 #define POWER_CONTROL_PIN 7
 
 #define TEMP1_PIN 0
@@ -83,7 +83,7 @@ inline void controlResistor()
 {
   char buf[DEFAULT_BUF_SIZE];
   int res_raw_temp = analogRead(RESISTOR_TEMP_PIN);
-  
+  int temp = res_raw_temp;
   //static int timer = 0;
   
 //  if (timer++ < TEMP_CONTROL_DELAY)
@@ -96,22 +96,25 @@ inline void controlResistor()
   //timer = 0;
   
   //slope is 100C / V
-  #define SLOPE 100
+  //#define SLOPE 100
   //get the voltage from the 10bit value
-  double voltage = 5.0 / 1024.0 * res_raw_temp;    
+  //double voltage = 5.0 / 1024.0 * res_raw_temp;    
   //Resistor sensor is unamplified.
-  double temp = SLOPE * voltage;     
+  //double temp = SLOPE * voltage;     
   
-  sprintf(buf, " --- resistor temp %d --- ", (int) temp);
-  Serial.println(buf);  
-  sprintf(buf, "res_vol %d", (int) voltage);
-  Serial.println(buf);  
+  #undef MAX_RESISTOR_TEMP
+  #define MAX_RESISTOR_TEMP 697
+
+  //sprintf(buf, " --- resistor temp %d --- ", (int) temp);
+  //Serial.println(buf);  
+  //sprintf(buf, "res_vol %d", (int) voltage);
+  //Serial.println(buf);  
   if ((int) temp > (MAX_RESISTOR_TEMP + 0))
   {
     digitalWrite(POWER_CONTROL_PIN, LOW); //TURN OFF
     isResistorOn = false;
   }
-  else if ((int)temp < (MAX_RESISTOR_TEMP - RESISTOR_TEMP_THRESHOLD))
+  else if ((int)temp < (MAX_RESISTOR_TEMP))
   {
     digitalWrite(POWER_CONTROL_PIN, HIGH); //TURN ON
     isResistorOn = true;
