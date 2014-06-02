@@ -77,7 +77,7 @@ try
             plot(1:length(temp_3), temp_3, 'g');
             plot(1:length(temp_4), temp_4, 'w');
             plot(1:length(temp_5), temp_5, 'y');
-            plot(1:length(plot_power), power_plot, 'm');
+            plot(1:length(power_plot), power_plot, 'm');
             
             l = temp_5_size + 1;
             axis([l-20,l,0,200]);
