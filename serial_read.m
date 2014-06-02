@@ -8,17 +8,17 @@ try
     log_file = fopen(filename, 'w', 'n', 'UTF-8');
     
     fopen(arduino);
-    resistor_temp = 0;
+    resistor_temp = 0:86400;
     resistor_temp_size = 0;
-    temp_1 = 0;
+    temp_1 = 0:86400;
     temp_1_size = 0;
-    temp_2 = 0;
+    temp_2 = 0:86400;
     temp_2_size = 0;
-    temp_3 = 0;
+    temp_3 = 0:86400;
     temp_3_size = 0;
-    temp_4 = 0;
+    temp_4 = 0:86400;
     temp_4_size = 0;
-    temp_5 = 0;
+    temp_5 = 0:86400;
     temp_5_size = 0;
     power_status = 0;
     power_status_size = 0;
@@ -29,7 +29,6 @@ try
     iterator = 0;
     while 1
         read_string = fscanf(arduino, '%s');
-        disp(read_string)
         fprintf(log_file, '%s\n', read_string);
         if (0==isempty(strfind(read_string, 'resistor_')))
             resistor_temp(resistor_temp_size + 1) = temp_from_ambient_10bit(str2num(read_string(10:end)));
