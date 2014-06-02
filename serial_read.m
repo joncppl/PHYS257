@@ -1,7 +1,7 @@
 try
     
     delete(instrfindall);
-    arduino = serial('COM9', 'BaudRate', 9600);
+    arduino = serial('COM9', 'BaudRate', 9600, 'Timeout', 0);
     filename = ['data_' datestr(now)];
     filename = strrep(filename, ' ', '_');
     filename = strrep(filename, ':', '_');
