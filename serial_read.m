@@ -29,6 +29,7 @@ try
     iterator = 0;
     while 1
         read_string = fscanf(arduino, '%s');
+        disp(read_string)
         fprintf(log_file, '%s\n', read_string);
         if (0==isempty(strfind(read_string, 'resistor_')))
             resistor_temp(resistor_temp_size + 1) = temp_from_ambient_10bit(str2num(read_string(10:end)));
