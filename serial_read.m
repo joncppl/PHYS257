@@ -71,7 +71,7 @@ try
             hold off
             whitebg(gcf,'k');
             hold on
-            plot(1:resistor_temp_size +_1, resistor_temp, 'b');
+            plot(1:resistor_temp_size + 1, resistor_temp, 'b');
             plot(1:temp_1_size + 1, temp_1, 'r');
             plot(1:temp_2_size + 1, temp_2, 'c');
             plot(1:temp_3_size + 1, temp_3, 'g');
@@ -82,7 +82,7 @@ try
             l = length(temp_5);
             axis([l-20,l,0,200]);
             
-            legend(strcat('Resistor Temp (', num2str(resistor_temp(length(resistor_temp))), ')'), ...
+            legend(strcat('Resistor Temp (', num2str(resistor_temp(resistor_temp_size + 1)), ')'), ...
                 strcat('pin 0 (', num2str(temp_1(temp_1_size + 1)), ')'), ...
                 strcat('pin 1 (', num2str(temp_2(temp_2_size + 1)), ')'), ...
                 strcat('pin 2 (', num2str(temp_3(temp_3_size + 1)), ')'), ...
