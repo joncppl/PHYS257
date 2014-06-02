@@ -79,7 +79,7 @@ try
             plot(1:temp_5_size + 1, temp_5, 'y');
             plot(1:power_plot_size, power_plot, 'm');
             
-            l = length(temp_5);
+            l = temp_5_size + 1;
             axis([l-20,l,0,200]);
             
             legend(strcat('Resistor Temp (', num2str(resistor_temp(resistor_temp_size + 1)), ')'), ...
