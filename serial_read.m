@@ -8,21 +8,21 @@ try
     log_file = fopen(filename, 'w', 'n', 'UTF-8');
     
     fopen(arduino);
-    resistor_temp = 0:86400;
+    resistor_temp = zeros(86400, 1)';
     resistor_temp_size = 0;
-    temp_1 = 0:86400;
+    temp_1 = zeros(86400, 1)';
     temp_1_size = 0;
-    temp_2 = 0:86400;
+    temp_2 = zeros(86400, 1)';
     temp_2_size = 0;
-    temp_3 = 0:86400;
+    temp_3 = zeros(86400, 1)';
     temp_3_size = 0;
-    temp_4 = 0:86400;
+    temp_4 = zeros(86400, 1)';
     temp_4_size = 0;
-    temp_5 = 0:86400;
+    temp_5 = zeros(86400, 1)';
     temp_5_size = 0;
-    power_status = 0:86400;
+    power_status = zeros(86400, 1)';
     power_status_size = 0;
-    power_plot = 0:86400;
+    power_plot = zeros(86400, 1)';
     power_plot_size = 0;
     
     figure
