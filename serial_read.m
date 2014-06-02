@@ -71,13 +71,13 @@ try
             hold off
             whitebg(gcf,'k');
             hold on
-            plot(1:resistor_temp_size + 1, resistor_temp, 'b');
-            plot(1:temp_1_size + 1, temp_1, 'r');
-            plot(1:temp_2_size + 1, temp_2, 'c');
-            plot(1:temp_3_size + 1, temp_3, 'g');
-            plot(1:temp_4_size + 1, temp_4, 'w');
-            plot(1:temp_5_size + 1, temp_5, 'y');
-            plot(1:power_plot_size, power_plot, 'm');
+            plot(1:length(resistor_temp), resistor_temp, 'b');
+            plot(1:length(temp_1), temp_1, 'r');
+            plot(1:length(temp_2), temp_2, 'c');
+            plot(1:length(temp_3), temp_3, 'g');
+            plot(1:length(temp_4), temp_4, 'w');
+            plot(1:length(temp_5), temp_5, 'y');
+            plot(1:length(plot_power), power_plot, 'm');
             
             l = temp_5_size + 1;
             axis([l-20,l,0,200]);
