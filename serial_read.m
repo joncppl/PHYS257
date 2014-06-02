@@ -20,9 +20,9 @@ try
     temp_4_size = 0;
     temp_5 = 0:86400;
     temp_5_size = 0;
-    power_status = 0;
+    power_status = 0:86400;
     power_status_size = 0;
-    power_plot = 0;
+    power_plot = 0:86400;
     power_plot_size = 0;
     
     figure
